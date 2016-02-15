@@ -24,7 +24,7 @@ WebDriver driver = new FirefoxDriver();
 		BylinyPage byp = page.jOpenBylinyPageBottomMenu();
 		//byp.setProductSort("reference:asc");
 		//byp.setProductSort("");
-		byp.setItemsPerPage("60");
+		/*byp.setItemsPerPage("60");
 		byp.setViewStyle(false);
 		byp.setItemsPerPage("24");
 		byp.setViewStyle(true);
@@ -35,7 +35,8 @@ WebDriver driver = new FirefoxDriver();
 		byp.setItemsPerPage("60");
 		byp.setViewStyle(false);
 		byp.setItemsPerPage("12");
-		byp.setViewStyle(true);
+		byp.setViewStyle(true);*/
+		while(byp.goToNextPage());
 	}
 	
 	//@Test

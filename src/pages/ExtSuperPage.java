@@ -65,6 +65,9 @@ public class ExtSuperPage extends SuperPage {
 	@FindBy(id="pagination_previous")
 	WebElement linkPreviousPage;
 	
+	@FindBy(id="pagination_next")
+	WebElement linkNextPage;
+	
 	@FindBy(xpath="//*[@id='center_column']/ul")
 	WebElement listItems;
 	
@@ -132,19 +135,27 @@ public class ExtSuperPage extends SuperPage {
 		}
 	}
 	
+	public boolean waitOnLoad() {
+		return (new WebDriverWait(driver, 2)).
+				until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//*[@id='center_column']/ul/p")));
+	}
+	
 	/*
 	 * 12, 24, 60
 	 */
 	public void setItemsPerPage(String value) {
 		Select select = new Select(selectItemsPerPage);
 		
+		boolean b = false;
+		
 		if(!value.isEmpty()) {
 			select.selectByVisibleText(value);
 			
 			printLog(driver.getTitle() + " - selected " + value + " items per page");
 			
-			boolean b = (new WebDriverWait(driver, 5)).
-				until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//*[@id='center_column']/ul/p")));
+			//boolean b = (new WebDriverWait(driver, 5)).
+			//	until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//*[@id='center_column']/ul/p")));
+			b = waitOnLoad();
 			
 			if(b)
 				printLog(driver.getTitle() + " - Load img found : b = " + b);
@@ -155,13 +166,14 @@ public class ExtSuperPage extends SuperPage {
 		else {
 			select.selectByVisibleText("12");
 		
-			boolean b = (new WebDriverWait(driver, 2)).
-				until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//*[@id='center_column']/ul/p")));
+			//boolean b = (new WebDriverWait(driver, 2)).
+			//	until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//*[@id='center_column']/ul/p")));
+			waitOnLoad();
 			
 			if(b)
-				printLog(driver.getTitle() + " - Load img found");
+				printLog(driver.getTitle() + " - gif \"Load\" was found");
 			else
-				printLog(driver.getTitle() + " - Load img did't find");
+				printLog(driver.getTitle() + " - gif \"Laod\" didn't find");
 		}
 	}
 	
@@ -320,6 +332,23 @@ public class ExtSuperPage extends SuperPage {
 				sleep(500);
 			}
 		}
+	}
+	
+	public boolean goToNextPage() {
+		if(!linkNextPage.getAttribute("class").equals("disabled pagination_next")) {
+			linkNextPage.click();
+			
+			waitOnLoad();
+			
+			printLog(driver.getTitle() + " - pressed link Next");
+			
+			return true;
+		}
+		else {
+			printLog(driver.getTitle() + " - last page was reached, can't press link Next");
+			
+			return false;
+		}		
 	}
 	
 	private void sleep(int ms) {

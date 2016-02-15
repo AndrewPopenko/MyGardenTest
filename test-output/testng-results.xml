@@ -2,16 +2,16 @@
 <testng-results skipped="0" failed="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="33764" started-at="2016-02-15T14:03:57Z" finished-at="2016-02-15T14:04:31Z">
+  <suite name="Default suite" duration-ms="1006950" started-at="2016-02-15T20:44:48Z" finished-at="2016-02-15T21:01:35Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="33764" started-at="2016-02-15T14:03:57Z" finished-at="2016-02-15T14:04:31Z">
+    <test name="Default test" duration-ms="1006950" started-at="2016-02-15T20:44:48Z" finished-at="2016-02-15T21:01:35Z">
       <class name="test1.NewTest">
-        <test-method status="PASS" signature="beforeTest()[pri:0, instance:test1.NewTest@5ffe9e]" name="beforeTest" is-config="true" duration-ms="4091" started-at="2016-02-15T15:03:57Z" finished-at="2016-02-15T15:04:01Z">
+        <test-method status="PASS" signature="beforeTest()[pri:0, instance:test1.NewTest@5ffe9e]" name="beforeTest" is-config="true" duration-ms="7697" started-at="2016-02-15T21:44:48Z" finished-at="2016-02-15T21:44:56Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeTest -->
-        <test-method status="PASS" signature="test1()[pri:0, instance:test1.NewTest@5ffe9e]" name="test1" duration-ms="29658" started-at="2016-02-15T15:04:02Z" finished-at="2016-02-15T15:04:31Z">
+        <test-method status="PASS" signature="test1()[pri:0, instance:test1.NewTest@5ffe9e]" name="test1" duration-ms="999233" started-at="2016-02-15T21:44:56Z" finished-at="2016-02-15T22:01:35Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- test1 -->
